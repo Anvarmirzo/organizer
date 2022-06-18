@@ -1,1 +1,36 @@
-<p>organizer works!</p>
+<section class="section">
+  <header class="header">
+    Organizer: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>
+  </header>
+  <main>
+    <ul *ngIf="tasks.length; else noTasks">
+      <li class="task" *ngFor="let task of tasks; let i = index">
+        <span>
+          <strong>{{i+1}}.</strong>
+          {{task.title}}
+        </span>
+        <button (click)="remove(task)" type="button" class="btn btn-primary">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+      </li>
+    </ul>
+
+    <ng-template #noTasks>
+      <p class="text-center">No tasks yet...</p>
+    </ng-template>
+  </main>
+
+  <footer>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <input type="text" formControlName="title">
+      <button
+        class="btn add-btn btn-primary"
+        [disabled]="form.invalid"
+      >
+       <span class="material-symbols-outlined">
+          add
+        </span>
+      </button>
+    </form>
+  </footer>
+</section>
