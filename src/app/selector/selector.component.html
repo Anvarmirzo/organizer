@@ -1,1 +1,13 @@
-<p>selector works!</p>
+<p class="content">
+  <button (click)="go(-1)" type="button">
+    <span class="material-symbols-outlined">
+      arrow_left
+    </span>
+  </button>
+  <span class="date">{{dateService.date | async | moment}}</span>
+  <button (click)="go(1)" type="button">
+    <span class="material-symbols-outlined">
+      arrow_right
+    </span>
+  </button>
+</p>

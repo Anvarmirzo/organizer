@@ -28,6 +28,18 @@ a {
   }
 }
 
+button {
+  display: flex;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  transition: opacity .2s;
+
+  &:hover:not(:disabled) {
+    opacity: .7;
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -38,7 +50,6 @@ input {
   padding: .4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
-  outline: none;
   margin-bottom: .5rem;
 }
 
@@ -55,25 +66,17 @@ table th {
 }
 
 .btn {
-  display: inline-block;
   background-color: var(--light-color);
   color: #333;
   padding: .4rem 1.3rem;
   font-size: 1rem;
-  border: 0;
   cursor: pointer;
   margin-right: .5rem;
-  transition: opacity .2s;
-  outline: none;
 
   &:disabled {
     background-color: var(--dark-color);
     color: #fff;
     cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    opacity: .8;
   }
 }
 
